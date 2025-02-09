@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Multi-Page App</title>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-black">
+    <div class="bg-gray-900 text-white p-6 rounded-2xl shadow-lg w-80 h-[525px] flex flex-col">
+        <div id="productivity" class="page">
+            <div class="flex justify-center mb-4">
+                <img src="./logo.png" alt="Productivity Illustration" class="rounded-lg w-32 h-32">
+            </div>
+            <h2 class="text-xl font-bold">The only productivity app you need</h2>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-lg w-full mt-10">Sign in with Email</button>
+            <div class="flex-grow"></div>
+            <div class="flex justify-between mt-4 w-full">
+                <button onclick="showPage('profile')" class="bg-gray-800 text-white px-4 py-2 rounded-lg w-1/2 mr-2">Profile</button>
+                <button onclick="showPage('progress')" class="bg-gray-800 text-white px-4 py-2 rounded-lg w-1/2 ml-2">Progress</button>
+            </div>
+            <p class="text-gray-400 text-xs mt-4">By continuing you agree to the <a href="#" class="underline">Terms and Conditions</a></p>
+        </div>
+        
+        <div id="profile" class="page hidden">
+            <div class="flex justify-center mb-4">
+                <img src="./logo.png" alt="User Profile" class="rounded-full w-20 h-20">
+            </div>
+            <h2 class="text-xl font-bold">Erlich Bachman</h2>
+            <p class="text-gray-400 text-sm">erlichbachman@piedpiper.com</p>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-lg w-full mt-4">Edit Profile</button>
+            <div class="flex justify-between items-center mt-4">
+                <span class="text-gray-400">Notifications</span>
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" class="sr-only peer">
+                    <div class="w-11 h-6 bg-gray-600 rounded-full peer-checked:bg-blue-500"></div>
+                </label>
+            </div>
+            <div class="flex justify-between items-center bg-gray-800 p-2 rounded-lg mt-4">
+                <span class="text-gray-400">Invite people</span>
+                <button class="bg-blue-500 text-white px-4 py-1 rounded-lg">Invite</button>
+            </div>
+            <div class="flex-grow"></div>
+            <div class="flex justify-between mt-4">
+                <button onclick="showPage('productivity')" class="bg-gray-800 text-white px-4 py-2 rounded-lg w-1/2 mr-2">Productivity</button>
+                <button onclick="showPage('progress')" class="bg-gray-800 text-white px-4 py-2 rounded-lg w-1/2 ml-2">Progress</button>
+            </div>
+            <p class="text-gray-600 text-xs mt-4">Log out</p>
+        </div>
+        
+        <div id="progress" class="page hidden h-[600 px]">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-lg font-bold">Daily progress</h2>
+                <img src="./logo.png" alt="User Profile" class="rounded-full w-10 h-10">
+            </div>
+            <h2 class="text-lg font-bold">Daily progress</h2>
+            <input type="text" placeholder="Search" class="w-full px-3 py-2 bg-gray-700 rounded-lg text-white mb-4">
+            <div class="flex space-x-2 mb-4">
+                <button class="bg-blue-500 text-white px-4 py-1 rounded-lg">All</button>
+                <button class="bg-gray-700 text-gray-400 px-4 py-1 rounded-lg">Favorite</button>
+            </div>
+            <div class="space-y-2">
+                <div class="bg-gray-800 p-3 rounded-lg flex items-center justify-between border border-green-500">
+                    <span>📘 Read "The Lean Startup"</span>
+                </div>
+                <div class="bg-gray-800 p-3 rounded-lg flex items-center justify-between border border-green-500">
+                    <span>🟢 Fix landing page</span>
+                </div>
+                <div class="bg-gray-800 p-3 rounded-lg flex items-center justify-between border border-green-500">
+                    <span>🟣 Share prototype with team</span>
+                </div>
+                <div class="bg-gray-800 p-3 rounded-lg flex items-center justify-between">
+                    <span>📩 Reply to Richard</span>
+                </div>
+                <div class="bg-gray-800 p-3 rounded-lg flex items-center justify-between">
+                    <span>🟣 Finalize pitch deck</span>
+                </div>
+            </div>
+            <div class="flex-grow"></div>
+            <div class="flex justify-between mt-4">
+                <button onclick="showPage('productivity')" class="bg-gray-800 text-white px-4 py-2 rounded-lg w-1/2 mr-2">Productivity</button>
+                <button onclick="showPage('profile')" class="bg-gray-800 text-white px-4 py-2 rounded-lg w-1/2 ml-2">Profile</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => page.classList.add('hidden'));
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
